@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.jakewharton.rxbinding2.view.RxView;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.MyApplication;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.R;
 
@@ -14,7 +16,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import io.reactivex.Observable;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
 
@@ -36,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     @BindView(R.id.til_password)
     TextInputLayout til_password;
 
+    @BindView(R.id.bt_continue)
+    Button bt_continue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,21 +55,15 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void loadViews() {
-        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean focused) {
-                if (!focused) {
-                    presenter.onNameFocusLost();
-                }
+        et_name.setOnFocusChangeListener((view, focused) -> {
+            if (!focused) {
+                presenter.onNameFocusLost();
             }
         });
 
-        et_password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean focused) {
-                if (!focused) {
-                    presenter.onPasswordFocusLost();
-                }
+        et_password.setOnFocusChangeListener((view, focused) -> {
+            if (!focused) {
+                presenter.onPasswordFocusLost();
             }
         });
     }
@@ -104,9 +103,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    @OnClick(R.id.bt_continue)
-    public void onContinueClick() {
-        presenter.onContinueClick();
+    @Override
+    public Observable<Object> observeButton() {
+        return RxView.clicks(bt_continue);
     }
 
 }

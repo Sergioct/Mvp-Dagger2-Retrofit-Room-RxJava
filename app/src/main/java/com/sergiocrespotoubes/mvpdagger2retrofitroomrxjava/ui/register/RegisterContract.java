@@ -4,6 +4,8 @@ package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.database.entity.User;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseContract;
 
+import io.reactivex.Observable;
+
 /**
  * Created by Sergio Crespo Toubes on 02-Oct-16.
  */
@@ -24,6 +26,8 @@ public interface RegisterContract {
         void hideEmptyPasswordError();
 
         void showMessage(String message);
+
+        Observable<Object> observeButton();
 
     }
 

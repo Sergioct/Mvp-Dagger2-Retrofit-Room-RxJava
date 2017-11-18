@@ -1,9 +1,8 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network;
 
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Post;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Twitch;
 
-import java.util.List;
-
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -13,8 +12,11 @@ import retrofit2.http.GET;
 
 public interface ApiControllerRetrofit {
 
-    @GET("/posts")
-    Call<List<Post>> getPosts();
+    @GET("/games/top")
+    Call<Twitch> getTopGames();
+
+    @GET("/games/top")
+    Observable<Twitch> getTopGamesObservable();
 
     //@Headers("Content-Type: application/json")
     //@POST("/posts")

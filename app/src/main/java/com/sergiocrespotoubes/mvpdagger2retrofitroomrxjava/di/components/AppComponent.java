@@ -9,6 +9,7 @@ import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.modules.NetworkMod
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.modules.PicassoModule;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ApplicationScoped;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.ApiControllerRetrofit;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main.MainComponent;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterComponent;
 import com.squareup.picasso.Picasso;
 
@@ -42,7 +43,7 @@ public interface AppComponent {
     ApiControllerRetrofit getApiControllerRetrofit();
 
     // Components
-    //MainComponent.Builder activityComponent();
+    MainComponent.Builder activityComponent();
     RegisterComponent.Builder registerComponent();
     //SplashComponent.Builder splashComponent();
 

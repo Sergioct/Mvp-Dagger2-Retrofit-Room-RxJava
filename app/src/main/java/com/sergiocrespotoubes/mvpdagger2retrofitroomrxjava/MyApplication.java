@@ -44,7 +44,7 @@ public class MyApplication extends Application {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .dbModule(new DbModule(this))
-                .networkModule(new NetworkModule("http://www.jsonplaceholder.typicode.com/"))
+                .networkModule(new NetworkModule("https://api.twitch.tv/kraken/"))
                 .build();
 
         apiControllerRetrofit = appComponent.getApiControllerRetrofit();

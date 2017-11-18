@@ -1,11 +1,9 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register;
 
-
-import android.view.View;
-
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.database.entity.User;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseContract;
 
+import rx.Observable;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 

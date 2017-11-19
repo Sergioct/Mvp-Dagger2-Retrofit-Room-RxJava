@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.R;
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Game;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Post;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
     Context context;
 
     //Vars
-    List<Game> lMainData;
+    List<Post> lMainData;
 
-    public MainAdapter(Context context, List<Game> lMainData) {
+    public MainAdapter(Context context, List<Post> lMainData) {
         this.lMainData = lMainData;
         this.context = context;
     }

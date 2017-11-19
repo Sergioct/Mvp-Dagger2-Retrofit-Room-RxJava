@@ -1,6 +1,5 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,26 +7,27 @@ import android.util.Log;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.MyApplication;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.R;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.ApiControllerRetrofit;
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Top;
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Twitch;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Post;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import io.reactivex.ObservableSource;
-import io.reactivex.Scheduler;
-import io.reactivex.functions.Function;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import sergiocrespotoubes.com.sergioctsdk.testing.SergioctDebug;
-import sergiocrespotoubes.com.sergioctsdk.ui.about.utils.MyApp;
+import sergiocrespotoubes.com.sergioctsdk.ui.about.AppsAdapter;
+import sergiocrespotoubes.com.sergioctsdk.ui.recyclerview.SergioctRecyclerViewActivity;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends SergioctRecyclerViewActivity implements MainContract.View {
 
     // Injects
 
@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Views
 
+    // Vars
+    List <Post> lPost = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,24 +59,34 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         presenter.setView(this);
 
-        Call<Twitch> call = apiControllerRetrofit.getTopGames();
-        call.enqueue(new Callback<Twitch>() {
+        MainAdapter mainAdapter = new MainAdapter(this, lPost);
+        setAdapter(mainAdapter);
+
+        apiControllerRetrofit.getPostsObservable()
+                .subscribeOn(Schedulers.io()) // Thread operator use
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Post>() {
+
             @Override
-            public void onResponse(Call<Twitch> call, Response<Twitch> response) {
-                List<Top> gameList = response.body().getTop();
-                for (int i = 0; i < gameList.size(); i++) {
-                    Log.i("TEST", gameList.get(i).getGame().getName());
-                }
+            public void onSubscribe(Disposable d) {
+
             }
 
             @Override
-            public void onFailure(Call<Twitch> call, Throwable t) {
+            public void onNext(Post post) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
 
             }
         });
-
-        apiControllerRetrofit.getTopGamesObservable().subscribe()
-                .
 
 
     }

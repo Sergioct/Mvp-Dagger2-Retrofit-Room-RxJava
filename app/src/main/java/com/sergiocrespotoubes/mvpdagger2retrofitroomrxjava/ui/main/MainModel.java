@@ -22,4 +22,5 @@ public class MainModel implements MainContract.Model {
     public Observable result() {
         return null;
     }
+
 }

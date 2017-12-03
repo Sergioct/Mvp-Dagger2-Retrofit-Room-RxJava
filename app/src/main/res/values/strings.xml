@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MvpDagger2RetrofitRoomRxjava</string>
+    <string name="splash_title">Mvp\nDagger2\nRetrofit\nRoom\nRxJava\nDataBinding\nTesting</string>
 </resources>

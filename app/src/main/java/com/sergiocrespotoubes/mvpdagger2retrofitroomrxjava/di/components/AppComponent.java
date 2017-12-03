@@ -11,6 +11,7 @@ import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.Application
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.ApiControllerRetrofit;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main.MainComponent;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterComponent;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.splash.SplashComponent;
 import com.squareup.picasso.Picasso;
 
 import dagger.Component;
@@ -45,7 +46,7 @@ public interface AppComponent {
     // Components
     MainComponent.Builder activityComponent();
     RegisterComponent.Builder registerComponent();
-    //SplashComponent.Builder splashComponent();
+    SplashComponent.Builder splashComponent();
 
     // Daos
     UserDao getUserDao();

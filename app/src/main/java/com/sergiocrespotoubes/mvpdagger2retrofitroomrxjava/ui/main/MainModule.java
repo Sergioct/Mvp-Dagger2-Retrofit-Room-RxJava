@@ -1,8 +1,9 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main;
 
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ActivityScoped;
+
 import dagger.Module;
 import dagger.Provides;
-import sergiocrespotoubes.com.pregnancycalendar.di.scopes.ActivityScoped;
 
 /**
  * Created by Sergio Crespo Toubes on 01/11/2017.

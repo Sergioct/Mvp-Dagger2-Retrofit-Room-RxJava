@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.qualifier.ActivityContext;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ActivityScoped;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -30,7 +32,6 @@ public class ActivityModule {
 
     @Provides
     @ActivityScoped
-    @ActivityContext
     //@Named("activity_context")
     Context provideActivityContext() {
         return mActivity;

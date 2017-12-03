@@ -15,9 +15,12 @@ public class SplashModel implements SplashContract.Model {
 
     Activity activity;
 
-    /*public SplashModel(Activity activity) {
+    public SplashModel() {
+    }
+
+    public SplashModel(Activity activity) {
         this.activity = activity;
-    }*/
+    }
 
     @Override
     public void loadRegister() {

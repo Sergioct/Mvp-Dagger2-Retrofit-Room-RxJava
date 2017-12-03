@@ -4,6 +4,7 @@ import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.modules.ActivityMo
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ActivityScoped;
 
 import dagger.Subcomponent;
+import rx.schedulers.Schedulers;
 
 @ActivityScoped
 @Subcomponent(modules = {SplashModule.class, ActivityModule.class})
@@ -20,5 +21,7 @@ public interface SplashComponent {
 
     SplashContract.Presenter getSplashPresenter();
     SplashContract.Model getSplashModel();
+    //Schedulers getSchedulers();
+    //SplashActivity getSplashActivity();
 
 }

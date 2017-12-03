@@ -6,6 +6,7 @@ import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ActivitySco
 
 import dagger.Module;
 import dagger.Provides;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Sergio Crespo Toubes on 24/11/2017.

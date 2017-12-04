@@ -1,8 +1,14 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main;
 
 
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.MyApplication;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.ApiControllerRetrofit;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterContract;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseContract;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import rx.Subscription;
 
 /**
@@ -14,10 +20,15 @@ public class MainPresenter implements MainContract.Presenter {
     private MainContract.View view;
     private MainContract.Model model;
 
-    private Subscription subscription = null;
+    private CompositeDisposable compositeDisposable;
+    ApiControllerRetrofit apiControllerRetrofit;
 
     public MainPresenter(MainContract.Model model) {
         this.model = model;
+        apiControllerRetrofit = MyApplication.appComponent.getApiControllerRetrofit();
+        compositeDisposable = new CompositeDisposable();
+
+        getPosts();
     }
 
     @Override
@@ -27,13 +38,22 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void dropView() {
-        if(subscription != null && !subscription.isUnsubscribed()){
-            subscription.unsubscribe();
-        }
+        compositeDisposable.clear();
     }
 
     @Override
     public void loadData() {
 
     }
+
+    private void getPosts(){
+        compositeDisposable.add(apiControllerRetrofit.getPosts()
+                .subscribeOn(Schedulers.io()) // Thread operator use
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(posts -> {
+
+                })
+        );
+    }
+
 }

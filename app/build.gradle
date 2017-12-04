@@ -105,7 +105,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
 
-    // Sergio sdk
+    /* Sergio sdk */
     implementation(name:'sergioct-sdk-lib-release', ext:'aar')
 
 }

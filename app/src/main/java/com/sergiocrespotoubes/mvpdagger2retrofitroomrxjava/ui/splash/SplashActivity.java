@@ -1,9 +1,11 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.MyApplication;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.R;
+import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterActivity;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseActivity;
 
 import javax.inject.Inject;
@@ -35,8 +37,15 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         SplashComponent splashComponent = MyApplication.appComponent.splashComponent().build();
         splashComponent.inject(this);
 
-        //presenter.setView(this, this);
+        presenter.setView(this);
         presenter.onSplashInit(this);
+    }
+
+    @Override
+    public void loadRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        this.startActivity(intent);
+        this.finish();
     }
 
 }

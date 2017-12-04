@@ -16,6 +16,7 @@ public interface SplashContract {
 
     interface View extends BaseContract.View {
 
+        void loadRegister();
     }
 
     interface Presenter extends BaseContract.Presenter {
@@ -27,8 +28,6 @@ public interface SplashContract {
     }
 
     interface Model extends BaseContract.Model {
-
-        void loadRegister();
 
     }
 

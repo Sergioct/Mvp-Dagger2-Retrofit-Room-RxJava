@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
+import sergiocrespotoubes.com.sergioctsdk.SergioctSystem;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
 
@@ -106,6 +107,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     @Override
     public Observable<Object> observeButton() {
         return RxView.clicks(bt_continue);
+    }
+
+    @Override
+    public void hideKeyboard() {
+        //SergioctSystem.closeSoftKeyboard(this);
     }
 
 }

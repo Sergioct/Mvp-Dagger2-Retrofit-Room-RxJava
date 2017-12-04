@@ -43,7 +43,7 @@ public class SplashPresenter implements SplashContract.Presenter {
     }
 
     public void onTimeFinished() {
-        model.loadRegister();
+        view.loadRegister();
     }
 
     @Override

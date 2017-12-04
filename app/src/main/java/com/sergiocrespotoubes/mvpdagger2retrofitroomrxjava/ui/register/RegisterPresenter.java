@@ -16,7 +16,10 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import rx.Observable;
 import rx.Subscription;
+import rx.functions.Action1;
 import rx.subscriptions.CompositeSubscription;
+import sergiocrespotoubes.com.sergioctsdk.SergioctSystem;
+import sergiocrespotoubes.com.sergioctsdk.SergioctUtils;
 
 /**
  * Created by Sergio on 02-Oct-16.
@@ -27,36 +30,29 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     private RegisterContract.View view;
     private RegisterContract.Model model;
 
-    private CompositeDisposable mCompositeDisposable;
-    ApiControllerRetrofit apiControllerRetrofit;
-
     public RegisterPresenter(RegisterContract.Model model) {
         this.model = model;
-        apiControllerRetrofit = MyApplication.appComponent.getApiControllerRetrofit();
     }
 
     private Subscription observeLookupButton(){
-        return (Subscription) view.observeButton().subscribe(__ -> {
-            view.showMessage("Look up button clicked");
-        });
+        return (Subscription) view.observeButton()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(__ -> {
+                    view.hideKeyboard();
+                    view.showMessage("Look up button clicked");
+
+                });
     }
 
     @Override
     public void setView(BaseContract.View view) {
         this.view = (RegisterContract.View) view;
-
-        mCompositeDisposable.add(apiControllerRetrofit.getPosts()
-            .subscribeOn(Schedulers.io()) // Thread operator use
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(posts -> {
-
-            })
-        );
     }
 
     @Override
     public void dropView() {
-            mCompositeDisposable.clear();
+
     }
 
     @Override

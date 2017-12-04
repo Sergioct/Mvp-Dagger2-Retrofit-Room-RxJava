@@ -29,6 +29,8 @@ public interface RegisterContract {
 
         Observable<Object> observeButton();
 
+        void hideKeyboard();
+
     }
 
     interface Presenter extends BaseContract.Presenter {

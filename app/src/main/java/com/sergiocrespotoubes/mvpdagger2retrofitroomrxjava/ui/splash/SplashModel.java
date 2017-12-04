@@ -13,20 +13,7 @@ import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterA
  */
 public class SplashModel implements SplashContract.Model {
 
-    Activity activity;
-
     public SplashModel() {
-    }
-
-    public SplashModel(Activity activity) {
-        this.activity = activity;
-    }
-
-    @Override
-    public void loadRegister() {
-        Intent intent = new Intent(activity, RegisterActivity.class);
-        activity.startActivity(intent);
-        activity.finish();
     }
 
 }

@@ -1,7 +1,6 @@
 package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main;
 
 
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.pojo.Post;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseContract;
 
 import java.util.Observable;

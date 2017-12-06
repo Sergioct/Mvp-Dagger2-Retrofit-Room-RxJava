@@ -34,7 +34,7 @@ import dagger.Component;
         NetworkModule.class})
 public interface AppComponent {
 
-    //void inject(PregnancyApplication pregnancyApplication);
+    //void inject(MyApplication myApplication);
 
     // Modules
     Picasso getPicasso();

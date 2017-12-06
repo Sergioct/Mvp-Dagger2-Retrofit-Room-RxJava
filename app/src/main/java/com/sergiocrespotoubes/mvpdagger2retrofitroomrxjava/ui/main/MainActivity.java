@@ -40,9 +40,6 @@ public class MainActivity extends SergioctRecyclerViewActivity implements MainCo
     @Inject
     Picasso picasso;
 
-    @Inject
-    ApiControllerRetrofit apiControllerRetrofit;
-
     // Views
 
     // Vars
@@ -62,31 +59,6 @@ public class MainActivity extends SergioctRecyclerViewActivity implements MainCo
         MainAdapter mainAdapter = new MainAdapter(this, lPost);
         setAdapter(mainAdapter);
 
-        apiControllerRetrofit.getPostsObservable()
-                .subscribeOn(Schedulers.io()) // Thread operator use
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Post>() {
-
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(Post post) {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
 
 
     }

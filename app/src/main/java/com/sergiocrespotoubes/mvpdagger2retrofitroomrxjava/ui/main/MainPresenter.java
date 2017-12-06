@@ -3,13 +3,11 @@ package com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.main;
 
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.MyApplication;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.network.ApiControllerRetrofit;
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.register.RegisterContract;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.ui.root.BaseContract;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import rx.Subscription;
 
 /**
  * Created by Sergio on 02-Oct-16.

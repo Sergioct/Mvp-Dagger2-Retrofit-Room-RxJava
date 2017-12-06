@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.qualifier.ActivityContext;
 import com.sergiocrespotoubes.mvpdagger2retrofitroomrxjava.di.scopes.ActivityScoped;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

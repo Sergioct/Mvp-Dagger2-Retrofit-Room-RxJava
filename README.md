@@ -1,12 +1,15 @@
 # Mvp-Dagger2-Retrofit-Room-RxJava
 Project to test android arquitecture with MVP, Dagger2, Retrofit, Room and JavaRx
 
+* [MVP Kotlin Sergioct](https://github.com/Sergioct/Kotlin-Mvp-Dagger2-Retrofit-Room-RxJava/)
+
 ## Dependencies
   * MVP
   * Dagger 2
   * Retrofit
   * Room
   * JavaRx
+  * ButterKnife
 
 ## Hierarchy
 
